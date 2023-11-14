@@ -17,10 +17,7 @@ class UsersController {
   async createUser(req, res) {
     try {
       let payload = req.body;
-      console.log('entre');
-      
       const user = new User(payload);
-
       user.valid();
       const response = await adapterDatabase.create(colletion, payload);
       payload._id = response.insertedId;

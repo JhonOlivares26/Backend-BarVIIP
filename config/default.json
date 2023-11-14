@@ -1,9 +1,9 @@
 {
     "database":{
         "name":"barviip",
-        "user":"emanueljulio320",
-        "password":"Tujefa12",
-        "host":"proyectos.6nwipqf.mongodb.net"
+        "user":"",
+        "password":"",
+        "host":"proyectos.rtyypbp.mongodb.net"
     },
     "api_host":"http://localhost:3001",
     "port":3001
