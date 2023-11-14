@@ -12,7 +12,7 @@ class UsersController {
   constructor() {}
   /**
    * @param {import('express').Request} req
-   * @param {import('express').Response} res   
+   * @param {import('express').Response} res
    */
   async createUser(req, res) {
     try {
@@ -34,6 +34,38 @@ class UsersController {
       });
     }
   }
+  /**
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
+   */
+  async deleteUser(req, res) {
+    try {
+      const id = req.params.id;
+      const { deleteCount: count } = await adapterDatabase.delete(colletion,id);
+      if (count == 0) {
+        throw {
+          status: 404,
+          message: "User not found in database",
+        };
+      }
+      res.status(200).json({
+        ok: true,
+        message: "User deleted successfully",
+        info: {},
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(error?.status || 500).json({
+        ok: false,
+        message: error?.message || error,
+      });
+    }
+  }
+  /**
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
+   */
+
 }
 
-module.exports = UsersController
+module.exports = UsersController;

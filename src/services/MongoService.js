@@ -57,8 +57,8 @@ class MongoService extends IDatabase {
   }
 
   async update(collectionName, payload, id) {
+    const _id = new ObjectId(id);
     const client = getClient();
-    const _id = ObjectId(id);
     try {
       await client.connect();
       const dbName = config.get("database.name");
@@ -74,8 +74,8 @@ class MongoService extends IDatabase {
   };
 
   async delete(collectionName, id) {
+    const _id = new ObjectId(id);
     const client = getClient();
-    const _id = ObjectId(id);
     try {
       await client.connect();
       const dbName = config.get("database.name");
