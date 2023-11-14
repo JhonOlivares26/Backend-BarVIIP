@@ -1,0 +1,27 @@
+{
+  "name": "backend-barviip",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000B\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000B\u0000a\u0000r\u0000V\u0000I\u0000I\u0000P\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "dev": " nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastianGT2003/Backend-BarVIIP.git"
+  },
+  "author": "emanueljulio420",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SebastianGT2003/Backend-BarVIIP/issues"
+  },
+  "homepage": "https://github.com/SebastianGT2003/Backend-BarVIIP#readme",
+  "dependencies": {
+    "config": "^3.3.9",
+    "express": "^4.18.2",
+    "mongodb": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
