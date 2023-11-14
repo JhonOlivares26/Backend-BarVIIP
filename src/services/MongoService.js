@@ -22,7 +22,7 @@ const getClient = () => {
 class MongoService extends IDatabase {
   constructor() {
     super();
-  }
+  };
 
   async create(collectionName, payload) {
     const client = getClient();
@@ -38,7 +38,74 @@ class MongoService extends IDatabase {
     } finally {
       await client.close();
     }
+  };
+
+  async getByfilter(collectionName, filter){
+    const client = getClient();
+    try {
+      await client.connect();
+      const dbName = config.get("database.name");
+      const database = client.db(dbName);
+      const collection = database.collection(collectionName);
+      const row = await collection.find(filter);
+      return row;
+    } catch (error) {
+      throw { success: false, message: "Error Mongo service" };
+    } finally {
+      await client.close();
+    }
   }
+
+  async update(collectionName, payload, id) {
+    const client = getClient();
+    const _id = ObjectId(id);
+    try {
+      await client.connect();
+      const dbName = config.get("database.name");
+      const database = client.db(dbName);
+      const collection = database.collection(collectionName);
+      const row = await collection.replaceOne({ _id }, payload);
+      return row;
+    } catch (error) {
+      throw { success: false, message: "Error Mongo service" };
+    } finally {
+      await client.close();
+    }
+  };
+
+  async delete(collectionName, id) {
+    const client = getClient();
+    const _id = ObjectId(id);
+    try {
+      await client.connect();
+      const dbName = config.get("database.name");
+      const database = client.db(dbName);
+      const collection = database.collection(collectionName);
+      const row = await collection.deleteOne({ _id });
+      return row;
+    } catch (error) {
+      throw { success: false, message: "Error Mongo service" };
+    } finally {
+      await client.close();
+    }
+  };
+
+  async deleteByFiter(collectionName,filter){
+    const client = getClient();
+    try {
+      await client.connect();
+      const dbName = config.get("database.name");
+      const database = client.db(dbName);
+      const collection = database.collection(collectionName);
+      const row = await collection.deleteMany(filter);
+      return row;
+    } catch (error) {
+      throw { success: false, message: "Error Mongo service" };
+    } finally {
+      await client.close();
+    }
+  };
+
 }
 
-module.exports = {MongoService}
+module.exports = { MongoService };
