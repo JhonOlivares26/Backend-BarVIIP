@@ -19,6 +19,16 @@ class UsersController {
       let payload = req.body;
       const user = new User(payload);
       user.valid();
+      let filter={
+        email:payload.email
+      }
+      const existUser= await adapterDatabase.findOne(colletion,filter)
+      if(existUser){
+        throw{
+            status:400,
+            message:"Exist already email"
+        }
+      }
       const response = await adapterDatabase.create(colletion, payload);
       payload._id = response.insertedId;
       res.status(201).json({
@@ -41,7 +51,10 @@ class UsersController {
   async deleteUser(req, res) {
     try {
       const id = req.params.id;
-      const { deleteCount: count } = await adapterDatabase.delete(colletion,id);
+      const { deleteCount: count } = await adapterDatabase.delete(
+        colletion,
+        id
+      );
       if (count == 0) {
         throw {
           status: 404,
@@ -65,15 +78,43 @@ class UsersController {
    * @param {import('express').Request} req
    * @param {import('express').Response} res
    */
-  async updateUser(req, res){
+  async updateUser(req, res) {
     try {
-        const payload=req.body
-        const id= req.params.id
-        const user = new User(payload);
-        user.valid();
-        const {modifiedCount: count}= await adapterDatabase.update(colletion,payload,id)
+      const payload = req.body;
+      const id = req.params.id;
+      const user = new User(payload);
+      user.valid();
+      const { modifiedCount: count } = await adapterDatabase.update(colletion,payload,id);
 
-        if(count==0){
+      if (count == 0) {
+        res.status(404).json({
+          ok: false,
+          message: "User not found",
+        });
+      }
+      res.status(200).json({
+        ok: true,
+        message: "User edited succesfully",
+        info: payload,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(error?.status || 500).json({
+        ok: false,
+        message: error?.message || error,
+      });
+    }
+  }
+  /**
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
+   */
+  async getUser(req, res){
+    try {
+        const id= req.params.id
+        const user= await adapterDatabase.getById(colletion,id);
+        console.log(user)
+        if (!user){
             res.status(404).json({
                 ok:false,
                 message:"User not found"
@@ -81,19 +122,19 @@ class UsersController {
         }
         res.status(200).json({
             ok:true,
-            message:"User edited succesfully",
-            info:payload
+            message:"User found",
+            info:user
         })
+
         
     } catch (error) {
-        console.error(error);
-        res.status(error?.status || 500).json({
-          ok: false,
-          message: error?.message || error,
+        res.status(error?.status||500).json({
+            ok:false,
+            message:error?.message||error
         });
-      }
+        
+    }
   }
-
 }
 
 module.exports = UsersController;
