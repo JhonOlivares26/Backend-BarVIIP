@@ -1,10 +1,10 @@
 class Users {
-  constructor({name, lasName, email, password, confiPassword}) {
+  constructor({name, lasName, email, password, confirmPassword}) {
     this.name = name;
     this.lasName = lasName;
     this.email = email;
     this.password = password;
-    this.confiPassword = confiPassword;
+    this.confirmPassword = confirmPassword;
   }
 
   valid() {
@@ -20,8 +20,8 @@ class Users {
     if (!this.password || this.password?.toString().length == 0) {
       throw { status: 400, message: "The password is required" };
     }
-    if (!this.confiPassword || this.confiPassword?.toString().length == 0) {
-      throw { status: 400, message: "The confi password is required" };
+    if (!this.confirmPassword || this.confirmPassword?.toString().length == 0) {
+      throw { status: 400, message: "The confirm password is required" };
     }
   }
 
@@ -31,7 +31,7 @@ class Users {
         lasName : this.lasName,
         email : this.email,
         password : this.password,
-        confiPassword : this.confiPassword
+        confirmPassword : this.confirmPassword
     }
   }
 

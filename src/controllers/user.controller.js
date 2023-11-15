@@ -23,7 +23,7 @@ class UsersController {
       payload._id = response.insertedId;
       res.status(201).json({
         ok: true,
-        message: "User created",
+        message: "User created successfully",
         info: payload,
       });
     } catch (error) {
@@ -65,6 +65,34 @@ class UsersController {
    * @param {import('express').Request} req
    * @param {import('express').Response} res
    */
+  async updateUser(req, res){
+    try {
+        const payload=req.body
+        const id= req.params.id
+        const user = new User(payload);
+        user.valid();
+        const {modifiedCount: count}= await adapterDatabase.update(colletion,payload,id)
+
+        if(count==0){
+            res.status(404).json({
+                ok:false,
+                message:"User not found"
+            })
+        }
+        res.status(200).json({
+            ok:true,
+            message:"User edited succesfully",
+            info:payload
+        })
+        
+    } catch (error) {
+        console.error(error);
+        res.status(error?.status || 500).json({
+          ok: false,
+          message: error?.message || error,
+        });
+      }
+  }
 
 }
 
