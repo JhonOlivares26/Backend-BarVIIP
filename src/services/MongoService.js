@@ -47,7 +47,7 @@ class MongoService extends IDatabase {
       const dbName = config.get("database.name");
       const database = client.db(dbName);
       const collection = database.collection(collectionName);
-      const row = await collection.find(filter);
+      const row = await collection.find(filter).toArray();
       return row;
     } catch (error) {
       throw { success: false, message: "Error Mongo service" };
