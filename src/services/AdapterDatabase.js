@@ -14,6 +14,9 @@ class IDatabase {
   deleteByFiter(collectionName, filter){
     throw "Implement method";
   }
+  getById(collectionName,filter){
+
+  }
 }
 
 module.exports = { IDatabase };
