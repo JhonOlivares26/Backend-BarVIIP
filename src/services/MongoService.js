@@ -64,7 +64,6 @@ class MongoService extends IDatabase {
       const database = client.db(dbName);
       const collection = database.collection(collectionName);
       const row = await collection.findOne(filter);
-      console.log(row)
       return row;
     } catch (error) {
       throw { success: false, message: "Error Mongo service" };
@@ -131,7 +130,6 @@ class MongoService extends IDatabase {
       const database = client.db(dbName);
       const collection = database.collection(collectionName);
       const row = await collection.findOne({_id});
-      console.log(row)
       return row;
     } catch (error) {
       throw { success: false, message: "Error Mongo service" };

@@ -1,5 +1,5 @@
 require("express");
-
+const{generateHash}=require("../services/Bcrypt")
 const User = require("../models/Users");
 const ConfigService = require("../services/ConfigService");
 const { MongoService } = require("../services/MongoService");
@@ -19,6 +19,8 @@ class UsersController {
       let payload = req.body;
       const user = new User(payload);
       user.valid();
+      payload.password=await generateHash(payload.password)
+      delete payload.confirmPassword
       let filter={
         email:payload.email
       }

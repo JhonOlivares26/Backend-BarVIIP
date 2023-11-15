@@ -23,6 +23,9 @@ class Users {
     if (!this.confirmPassword || this.confirmPassword?.toString().length == 0) {
       throw { status: 400, message: "The confirm password is required" };
     }
+    if (this.confirmPassword !== this.password) {
+      throw { status: 400, message: "The passwords are not eaqual" };
+    }
   }
 
   tojson(){
