@@ -85,25 +85,52 @@ class BarbersController {
       barber.valid();
       payload.password = await generateHash(payload.password);
       delete payload.confirmPassword;
-      const { modifiedCount: count } = await adapterDatabase.update(
-        colletion,
-        payload,
-        id
-      );
-      if (count == 0) {
-        res.status(404).json({
-          ok: false,
-          message: "Barber not found",
-        });
-      } else {
-        res.status(200).json({
-          ok: true,
-          message: "Barber edited succesfully",
-          info: payload,
-        });
+      const filter = {
+        email: payload.email,
+      };
+      const existEmail = await adapterDatabase.findOne(colletion, filter);
+      /* console.log(barbero._id.toString()); */
+      /* console.log(barbero) */
+      if (!existEmail) {
+        const { modifiedCount: count } = await adapterDatabase.update(
+          colletion,
+          payload,
+          id
+        );
+        if (count == 0) {
+          res.status(404).json({
+            ok: false,
+            message: "Barber not found",
+          });
+        } else {
+          res.status(200).json({
+            ok: true,
+            message: "Barber edited succesfully",
+            info: payload,
+          });
+        }
+      }
+      if (existEmail) {
+        if (existEmail._id.toString() === id) {
+          const { modifiedCount: count } = await adapterDatabase.update(colletion,payload,id);
+          if (count == 0) {
+            res.status(404).json({
+              ok: false,
+              message: "Barber not found",
+            });
+          } else {
+            res.status(200).json({
+              ok: true,
+              message: "Barber edited succesfully",
+              info: payload,
+            });
+          }
+        }
+        else{
+          throw { status: 400, message: "Email is already registered" };
+        }
       }
     } catch (error) {
-      console.error(error);
       res.status(error?.status || 500).json({
         ok: false,
         message: error?.message || error,
