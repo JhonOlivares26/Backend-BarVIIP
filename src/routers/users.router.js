@@ -1,18 +1,19 @@
-const express = require("express")
+const express = require("express");
 const { AuthMiddleware } = require("../middleware/auth.middleware");
 
-const router = express.Router()
+const router = express.Router();
 
 const { UsersController } = require('../controllers');
-const _usersController = new UsersController()
+const _usersController = new UsersController();
 
-router.post("/", _usersController.createUser)
+router.post("/", _usersController.createUser);
+//Save image
+router.post("/:id/image",_usersController.saveImage);
 
-router.use(AuthMiddleware)
+router.use(AuthMiddleware);
 
-router.delete("/:id", _usersController.deleteUser)
-router.put("/:id", _usersController.updateUser)
-router.get("/:id", _usersController.getUser)
-
+router.delete("/:id", _usersController.deleteUser);
+router.put("/:id", _usersController.updateUser);
+router.get("/:id", _usersController.getUser);
 
 module.exports = router
