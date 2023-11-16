@@ -9,10 +9,13 @@ const {AuthController}= require("../controllers/auth.controller");
 const { AuthMiddleware } = require("../middleware/auth.middleware");
 const _authController= new AuthController();
 
+router.use("/static/", express.static("images"));
+
 router.use((req, res, next) => {
   console.log("Middleware - Audiencia");
   next();
 });
+
 router.post("/auth", _authController.login)
 /* router.use(AuthMiddleware) */
 router.use( "/users", userRouter);
