@@ -7,6 +7,8 @@ const { BarbersController } = require('../controllers');
 const _barberController = new BarbersController()
 
 router.post("/", _barberController.createBarber)
+//Save image
+router.post("/:id/image",_barberController.saveImage);
 
 router.use(AuthMiddleware)
 

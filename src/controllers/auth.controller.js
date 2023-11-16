@@ -34,6 +34,7 @@ class AuthController {
         const passwordEqual = compareHash(password, user.password);
         if (passwordEqual) {
           delete user.password;
+          user.type="User"
           const token = createToken(user);
           res.status(200).json({
             ok: true,
@@ -48,6 +49,7 @@ class AuthController {
         const passwordEqual = compareHash(password, barber.password);
         if (passwordEqual) {
           delete barber.password;
+          barber.type="Barber"
           const token = createToken(barber);
           res.status(200).json({
             ok: true,

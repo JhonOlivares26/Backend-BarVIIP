@@ -93,7 +93,7 @@ class UsersController {
       };
       const existEmail = await adapterDatabase.findOne(colletion, filter);
       if (!existEmail) {
-        const { modifiedCount: count } = await adapterDatabase.update(colletion,payload,id);
+        const { modifiedCount: count } = await adapterDatabase.update(colletion, payload, id);
         if (count == 0) {
           res.status(404).json({
             ok: false,
@@ -109,7 +109,7 @@ class UsersController {
       }
       if (existEmail) {
         if (existEmail._id.toString() === id) {
-          const { modifiedCount: count } = await adapterDatabase.update(colletion,payload,id);
+          const { modifiedCount: count } = await adapterDatabase.update(colletion, payload, id);
           if (count == 0) {
             res.status(404).json({
               ok: false,
@@ -123,7 +123,7 @@ class UsersController {
             });
           }
         }
-        else{
+        else {
           throw { status: 400, message: "Email is already registered" };
         }
       }
@@ -174,9 +174,9 @@ class UsersController {
         img.mv(`./images/${img.md5}${img.name}`);
         const host = config.get("api_host");
         const url = `${host}static/${img.md5}${img.name}`;
-        const user = await adapterDatabase.getById(colletion,id)
-        user.img = url; 
-       adapterDatabase.update(colletion, user, id)
+        const user = await adapterDatabase.getById(colletion, id)
+        user.img = url;
+        adapterDatabase.update(colletion, user, id)
         res.status(200).json({
           ok: true,
           message: "Imagen del usuario guardado",
@@ -191,8 +191,6 @@ class UsersController {
       });
     }
   }
-  
-
 }
 
 module.exports = UsersController;
