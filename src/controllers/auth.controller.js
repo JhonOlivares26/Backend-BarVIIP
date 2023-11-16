@@ -72,5 +72,30 @@ class AuthController {
       });
     }
   }
+  async verifyToken(req, res) {
+    try {
+      const { token } = req.body;
+      const user = verifyToken(token);
+      if (!user) {
+        throw { status: 400, message: "Error verificando el token." };
+      }
+      res.status(200).json({
+        ok: true,
+        message: "Token verificado",
+        info: { ...user },
+      });
+    } catch (error) {
+      if (error instanceof TokenExpiredError) {
+        return res.status(400).json({
+          ok: false,
+          message: "Token no valido",
+        });
+      }
+      return res.status(error?.status || 500).json({
+        ok: false,
+        message: error?.message || error,
+      });
+    }
+  }
 }
 module.exports = { AuthController };
