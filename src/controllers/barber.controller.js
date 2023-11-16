@@ -89,14 +89,8 @@ class BarbersController {
         email: payload.email,
       };
       const existEmail = await adapterDatabase.findOne(colletion, filter);
-      /* console.log(barbero._id.toString()); */
-      /* console.log(barbero) */
       if (!existEmail) {
-        const { modifiedCount: count } = await adapterDatabase.update(
-          colletion,
-          payload,
-          id
-        );
+        const { modifiedCount: count } = await adapterDatabase.update(colletion,payload,id);
         if (count == 0) {
           res.status(404).json({
             ok: false,
