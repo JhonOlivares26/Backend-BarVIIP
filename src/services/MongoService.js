@@ -23,6 +23,22 @@ class MongoService extends IDatabase {
   constructor() {
     super();
   };
+  async findAll(collectionName) {
+    const client = getClient();
+    try {
+      await client.connect();
+      const dbName = config.get("database.name");
+      const database = client.db(dbName);
+      const collection = database.collection(collectionName);
+      const rows = await collection.find().toArray();
+      return rows;
+    } catch (error) {
+      console.error(error);
+      throw { success: false, message: "Error Mongo service" };
+    } finally {
+      await client.close();
+    }
+  }
 
   async create(collectionName, payload) {
     const client = getClient();

@@ -15,6 +15,7 @@ router.use(AuthMiddleware)
 router.delete("/:id", _barberController.deleteBarber)
 router.put("/:id", _barberController.updateBarber)
 router.get("/:id", _barberController.getBarber)
+router.get("/", _barberController.allBarbers)
 
 
 module.exports = router

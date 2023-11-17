@@ -15,8 +15,13 @@ class IDatabase {
     throw "Implement method";
   }
   getById(collectionName,filter){
+    throw "Implement method";
+  }
+  findAll(collectionName){
+    throw "Implement method";
 
   }
+
 }
 
 module.exports = { IDatabase };

@@ -90,7 +90,11 @@ class BarbersController {
       };
       const existEmail = await adapterDatabase.findOne(colletion, filter);
       if (!existEmail) {
-        const { modifiedCount: count } = await adapterDatabase.update(colletion,payload,id);
+        const { modifiedCount: count } = await adapterDatabase.update(
+          colletion,
+          payload,
+          id
+        );
         if (count == 0) {
           res.status(404).json({
             ok: false,
@@ -106,7 +110,11 @@ class BarbersController {
       }
       if (existEmail) {
         if (existEmail._id.toString() === id) {
-          const { modifiedCount: count } = await adapterDatabase.update(colletion,payload,id);
+          const { modifiedCount: count } = await adapterDatabase.update(
+            colletion,
+            payload,
+            id
+          );
           if (count == 0) {
             res.status(404).json({
               ok: false,
@@ -119,8 +127,7 @@ class BarbersController {
               info: payload,
             });
           }
-        }
-        else{
+        } else {
           throw { status: 400, message: "Email is already registered" };
         }
       }
@@ -170,17 +177,38 @@ class BarbersController {
         img.mv(`./images/${img.md5}${img.name}`);
         const host = config.get("api_host");
         const url = `${host}static/${img.md5}${img.name}`;
-        const barber = await adapterDatabase.getById(colletion,id)
-        barber.img = url; 
-       adapterDatabase.update(colletion, barber, id)
+        const barber = await adapterDatabase.getById(colletion, id);
+        barber.img = url;
+        adapterDatabase.update(colletion, barber, id);
         res.status(200).json({
           ok: true,
           message: "Imagen del usuario guardado",
-          info: barber
+          info: barber,
         });
-      } else { throw { status: 400 } };
+      } else {
+        throw { status: 400 };
+      }
     } catch (error) {
-      console.error(error)
+      console.error(error);
+      res.status(error?.status || 500).json({
+        ok: false,
+        message: error?.message || error,
+      });
+    }
+  }
+  /**
+   * @param {import('express').Request} req
+   * @param {import('express').Response} res
+   */
+  async allBarbers(req, res) {
+    try {
+      const barbers = await adapterDatabase.findAll(colletion);
+      res.status(200).json({
+        ok: true,
+        message: "Consulted barbers",
+        info: barbers
+      });
+    } catch (error) {
       res.status(error?.status || 500).json({
         ok: false,
         message: error?.message || error,
