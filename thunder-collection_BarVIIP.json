@@ -1,0 +1,373 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "BarVIIP",
+    "dateExported": "2023-11-17T15:16:41.579Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "d3109d7e-352b-409b-93ed-b3c8996c0e02",
+            "name": "Appointments",
+            "containerId": "",
+            "created": "2023-11-13T22:29:52.100Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "a6e68258-9257-4bd4-9499-07fe3e25d0ba",
+            "name": "Users",
+            "containerId": "",
+            "created": "2023-11-14T20:50:19.960Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "a30dd025-5422-41f3-9014-92149beac1c5",
+            "name": "Barbers",
+            "containerId": "",
+            "created": "2023-11-16T02:52:19.513Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "f56a260e-d082-4659-959a-b7f5725752ac",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "d3109d7e-352b-409b-93ed-b3c8996c0e02",
+            "name": "createAppointment",
+            "url": "http://localhost:3001/appointments/",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2023-11-13T22:29:52.103Z",
+            "modified": "2023-11-13T22:29:52.103Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"idBarber\":5,\n  \"idClient\":15,\n  \"date\":\"04/05/2023\",\n  \"hour\":\"15:00\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "dffa61ce-7d14-40c8-a5cd-7f63315af1de",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "d3109d7e-352b-409b-93ed-b3c8996c0e02",
+            "name": "getByFilter",
+            "url": "http://localhost:3001/appointments/",
+            "method": "GET",
+            "sortNum": 7500,
+            "created": "2023-11-13T22:29:52.104Z",
+            "modified": "2023-11-13T22:29:52.104Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"idBarber\":15\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e5d92c25-1c19-4301-8531-8aed56698348",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "d3109d7e-352b-409b-93ed-b3c8996c0e02",
+            "name": "updateAppointment",
+            "url": "http://localhost:3001/appointments/65524f06c23bf35d589082ad",
+            "method": "PUT",
+            "sortNum": 8750,
+            "created": "2023-11-13T22:29:52.102Z",
+            "modified": "2023-11-13T22:29:52.102Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\"idBarber\":15,\n\"idClient\":50,\n\"hour\":\"15:45\",\n\"date\":\"01/02/2023\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2aa6115b-9e4d-426b-89c1-bd4d7ee23f60",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "d3109d7e-352b-409b-93ed-b3c8996c0e02",
+            "name": "deleteAppointment",
+            "url": "http://localhost:3001/appointments/65518803ebe0794ef5be6a87",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-11-13T22:29:52.101Z",
+            "modified": "2023-11-13T22:29:52.101Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "21f726d0-8ce3-411e-b171-557b98e130ab",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "d3109d7e-352b-409b-93ed-b3c8996c0e02",
+            "name": "deleteByFilter",
+            "url": "http://localhost:3001/appointments/delete/60",
+            "method": "DELETE",
+            "sortNum": 15000,
+            "created": "2023-11-13T22:29:52.105Z",
+            "modified": "2023-11-13T22:29:52.105Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"idBarber\":16\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7444ae89-4b93-49bc-af96-053e5e96150c",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a6e68258-9257-4bd4-9499-07fe3e25d0ba",
+            "name": "createUser",
+            "url": "http://localhost:3001/users",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2023-11-14T20:50:27.786Z",
+            "modified": "2023-11-17T06:08:40.763Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Sebastian \",\n  \"lastName\": \"GONZALEZ\",\n  \"email\": \"SEBITAS12345667@gmail.com\",\n  \"password\": \"sebas123\",\n  \"confirmPassword\": \"sebas123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "402cb7e0-1676-4153-9f14-a84b49baf318",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a6e68258-9257-4bd4-9499-07fe3e25d0ba",
+            "name": "deleteUser",
+            "url": "http://localhost:3001/users/6553e6f2cca987102d9d0d9d",
+            "method": "DELETE",
+            "sortNum": 35000,
+            "created": "2023-11-14T23:28:24.287Z",
+            "modified": "2023-11-14T23:38:27.134Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "a403eaad-4b8f-4e4c-82b8-d1dc050e95a5",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a6e68258-9257-4bd4-9499-07fe3e25d0ba",
+            "name": "updateUser",
+            "url": "http://localhost:3001/users/655716e4a162069c5b215f7a",
+            "method": "PUT",
+            "sortNum": 45000,
+            "created": "2023-11-14T23:56:37.822Z",
+            "modified": "2023-11-17T08:14:41.978Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Sebastian1\",\n  \"lastName\": \"GonzalezTrujillo\",\n  \"email\": \"sebas@gmail.com\",\n  \"password\": \"sebastian\",\n  \"confirmPassword\":\"sebastian\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU3MTZlNGExNjIwNjljNWIyMTVmN2EiLCJuYW1lIjoiU2ViYXN0aWFuMSIsImxhc3ROYW1lIjoiR29uemFsZXpUcnVqaWxsbyIsImVtYWlsIjoic2ViYXNAZ21haWwuY29tIiwidHlwZSI6IlVzZXIiLCJpYXQiOjE3MDAyMDc4NTgsImV4cCI6MTcwMDIxMTQ1OH0.MmRKgdQw_R6V_0oGue7yqaVE7JGTj25maVywzhdZoeM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "14e9d8b4-a799-497b-b8e6-f7f29f00aa98",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a6e68258-9257-4bd4-9499-07fe3e25d0ba",
+            "name": "getUser",
+            "url": "http://localhost:3001/users/655576f8010828e80d3aba40",
+            "method": "GET",
+            "sortNum": 55000,
+            "created": "2023-11-15T00:16:32.345Z",
+            "modified": "2023-11-16T01:59:16.008Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1NzZmODAxMDgyOGU4MGQzYWJhNDAiLCJuYW1lIjoiU2ViYXN0aWFuICIsImxhc05hbWUiOiJHT05aQUxFWiIsImVtYWlsIjoiU0VCQVMxMjM3OEBnbWFpbC5jb20iLCJpYXQiOjE3MDAwOTk4NzgsImV4cCI6MTcwMDEwMzQ3OH0.Ja30YOltdzYmuIg5EwWliS_qUB4Q7VCTDECZbSNUw6A"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9b5b2832-75ef-4135-8f0b-311c3aba39c8",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a6e68258-9257-4bd4-9499-07fe3e25d0ba",
+            "name": "login",
+            "url": "http://localhost:3001/auth",
+            "method": "POST",
+            "sortNum": 65000,
+            "created": "2023-11-15T22:28:02.810Z",
+            "modified": "2023-11-17T07:25:52.039Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"sebas@gmail.com\",\n  \"password\":\"sebastian\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b21b26e4-5abd-4fda-81fb-4c6f95619104",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a6e68258-9257-4bd4-9499-07fe3e25d0ba",
+            "name": "verifyToken",
+            "url": "http://localhost:3001/verify",
+            "method": "POST",
+            "sortNum": 75000,
+            "created": "2023-11-16T00:31:47.618Z",
+            "modified": "2023-11-17T07:59:04.025Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU3MTZlNGExNjIwNjljNWIyMTVmN2EiLCJuYW1lIjoiU2ViYXN0aWFuMSIsImxhc3ROYW1lIjoiR29uemFsZXpUcnVqaWxsbyIsImVtYWlsIjoic2ViYXNAZ21haWwuY29tIiwidHlwZSI6IlVzZXIiLCJpYXQiOjE3MDAyMDc5MzMsImV4cCI6MTcwMDIxMTUzM30.oWhtNzr4qcnKg1lvGgsWjsl6JID_jjOgBV1egXIHZqU\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5d9e99ea-0e50-4f40-974b-bf97c1655554",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a30dd025-5422-41f3-9014-92149beac1c5",
+            "name": "createBarber",
+            "url": "http://localhost:3001/barbers",
+            "method": "POST",
+            "sortNum": 85000,
+            "created": "2023-11-16T02:52:45.849Z",
+            "modified": "2023-11-16T03:00:29.116Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Emanuel \",\n  \"lasName\": \"Julio\",\n  \"email\": \"ema123@gmail.com\",\n  \"password\": \"sebas123\",\n  \"confirmPassword\": \"sebas123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ad364f20-0de9-4126-9fdc-67dd6e8f333d",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a30dd025-5422-41f3-9014-92149beac1c5",
+            "name": "deleteBarber",
+            "url": "http://localhost:3001/barbers/6555872cd273aea1ed2c3195",
+            "method": "DELETE",
+            "sortNum": 95000,
+            "created": "2023-11-16T03:01:16.610Z",
+            "modified": "2023-11-16T04:16:23.800Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1ODcyY2QyNzNhZWExZWQyYzMxOTkiLCJuYW1lIjoiRW1hbnVlbCAiLCJsYXNOYW1lIjoiSnVsaW8iLCJlbWFpbCI6ImVtYTEyM0BnbWFpbC5jb20iLCJpYXQiOjE3MDAxMDgwMDYsImV4cCI6MTcwMDExMTYwNn0.-2fqD8sJAPDLSXocRW5RzccXXASeBRc8no7k-WIy3KY"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f414f061-87b3-4cf8-9823-58853bd6997f",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a30dd025-5422-41f3-9014-92149beac1c5",
+            "name": "login",
+            "url": "http://localhost:3001/auth",
+            "method": "POST",
+            "sortNum": 95000,
+            "created": "2023-11-16T03:03:10.114Z",
+            "modified": "2023-11-16T03:04:07.454Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"ema123@gmail.com\",\n  \"password\":\"sebas123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ea65310a-3c84-4dc1-9597-16ff6ac97230",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a30dd025-5422-41f3-9014-92149beac1c5",
+            "name": "getBarber",
+            "url": "http://localhost:3001/barbers/655652fc3d162dee9c5acb03",
+            "method": "GET",
+            "sortNum": 105000,
+            "created": "2023-11-16T03:06:43.721Z",
+            "modified": "2023-11-16T17:37:20.784Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU2NTJmYzNkMTYyZGVlOWM1YWNiMDMiLCJuYW1lIjoiRW1hbnVlbCAiLCJsYXNOYW1lIjoiSnVsaW8iLCJlbWFpbCI6ImVtYTEyM0BnbWFpbC5jb20iLCJpYXQiOjE3MDAxNTYxODcsImV4cCI6MTcwMDE1OTc4N30.xorj_6TQG404TH4We7x2zARKpd6cD7Q3g17HNKr2YZw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "efd746a8-a11b-4be7-b184-00c156e08664",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a30dd025-5422-41f3-9014-92149beac1c5",
+            "name": "updateBarber",
+            "url": "http://localhost:3001/barbers/65566aa71c033b082bb4387c",
+            "method": "PUT",
+            "sortNum": 115000,
+            "created": "2023-11-16T17:37:55.963Z",
+            "modified": "2023-11-16T19:18:03.953Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Emanuel gay4\",\n  \"lasName\": \"Julio\",\n  \"email\": \"ema1235@gmail.com\",\n  \"password\": \"sebas123\",\n  \"confirmPassword\": \"sebas123\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU2NmFhNzFjMDMzYjA4MmJiNDM4N2MiLCJuYW1lIjoiRW1hbnVlbCAiLCJsYXNOYW1lIjoiSnVsaW8iLCJlbWFpbCI6ImVtYTEyM0BnbWFpbC5jb20iLCJpYXQiOjE3MDAxNjIyMzgsImV4cCI6MTcwMDE2NTgzOH0.15vvl8ER7xq-HEATGHTmOLA3NX0k9OPCOg768CZOh3w"
+            },
+            "tests": []
+        },
+        {
+            "_id": "178ae09f-1a25-4161-aa38-89d205619dcb",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a6e68258-9257-4bd4-9499-07fe3e25d0ba",
+            "name": "saveImage",
+            "url": "http://localhost:3001/users/655661e06bd49c97e9741f8d/image",
+            "method": "POST",
+            "sortNum": 125000,
+            "created": "2023-11-16T19:22:33.767Z",
+            "modified": "2023-11-16T19:24:06.333Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "img",
+                        "value": "c:\\Users\\sebas\\OneDrive\\Imágenes\\bobesponja.jpg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "05afda68-da31-447f-aca3-c7d7b2776f98",
+            "colId": "4f5cdd2b-9f00-44e4-b924-a875d4b55ded",
+            "containerId": "a30dd025-5422-41f3-9014-92149beac1c5",
+            "name": "allBarbers",
+            "url": "http://localhost:3001/barbers",
+            "method": "GET",
+            "sortNum": 135000,
+            "created": "2023-11-17T03:50:20.606Z",
+            "modified": "2023-11-17T03:52:01.430Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU2NjFlMDZiZDQ5Yzk3ZTk3NDFmOGQiLCJuYW1lIjoic2ViYXMiLCJsYXNOYW1lIjoibmFkYSIsImVtYWlsIjoic2ViYXNAZ21haWwuY29tIiwiaW1nIjoiaHR0cDovL2xvY2FsaG9zdDozMDAxc3RhdGljLzJkYWM3NDE5YjcyYzM3M2Q1YTk5YjlmODZjOTBmZmU5Ym9iZXNwb25qYS5qcGciLCJ0eXBlIjoiVXNlciIsImlhdCI6MTcwMDE5MTI0MywiZXhwIjoxNzAwMTk0ODQzfQ.zRYdK9XSYVTJAJaqmmj8hsZrLyxeJYg3ff-iiI30cbI"
+            },
+            "tests": []
+        }
+    ]
+}
