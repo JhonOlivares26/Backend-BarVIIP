@@ -176,7 +176,7 @@ class BarbersController {
       if (img) {
         img.mv(`./images/${img.md5}${img.name}`);
         const host = config.get("api_host");
-        const url = `${host}static/${img.md5}${img.name}`;
+        const url = `${host}/static/${img.md5}${img.name}`;
         const barber = await adapterDatabase.getById(colletion, id);
         barber.img = url;
         adapterDatabase.update(colletion, barber, id);

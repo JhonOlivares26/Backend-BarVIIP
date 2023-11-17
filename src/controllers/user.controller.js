@@ -173,7 +173,7 @@ class UsersController {
       if (img) {
         img.mv(`./images/${img.md5}${img.name}`);
         const host = config.get("api_host");
-        const url = `${host}static/${img.md5}${img.name}`;
+        const url = `${host}/static/${img.md5}${img.name}`;
         const user = await adapterDatabase.getById(colletion, id)
         user.img = url;
         adapterDatabase.update(colletion, user, id)
