@@ -1,7 +1,7 @@
 class Users {
-  constructor({name, lasName, email, password, confirmPassword}) {
+  constructor({name, lastName, email, password, confirmPassword}) {
     this.name = name;
-    this.lasName = lasName;
+    this.lastName = lastName;
     this.email = email;
     this.password = password;
     this.confirmPassword = confirmPassword;
@@ -11,7 +11,7 @@ class Users {
     if (!this.name || this.name?.toString().length == 0) {
       throw { status: 400, message: "The name is required" };
     }
-    if (!this.lasName || this.lasName?.toString().length == 0) {
+    if (!this.lastName || this.lastName?.toString().length == 0) {
       throw { status: 400, message: "The last name is required" };
     }
     if (!this.email || this.email?.toString().length == 0) {
@@ -31,7 +31,7 @@ class Users {
   tojson(){
     return {
         name : this.name,
-        lasName : this.lasName,
+        lastName : this.lastName,
         email : this.email,
         password : this.password,
         confirmPassword : this.confirmPassword
