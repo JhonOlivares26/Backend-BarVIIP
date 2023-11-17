@@ -1,10 +1,11 @@
 class Users {
-    constructor({ idBarber,idUser,date,hour,address}) {
+    constructor({ idBarber,idUser,date,hour,address, nameBarber}) {
       this.idBarber = idBarber;
       this.idUser = idUser;
       this.date = date;
       this.hour = hour;
       this.address = address;
+      this.nameBarber = nameBarber
     }
   
     valid() {
@@ -23,6 +24,9 @@ class Users {
       if (!this.address || this.address?.toString().length == 0) {
         throw { status: 400, message: "The address is required" };
       }
+      if (!this.nameBarber || this.nameBarber?.toString().length == 0) {
+        throw { status: 400, message: "The name barber is required" };
+      }
     }
   
     tojson(){
@@ -31,7 +35,8 @@ class Users {
         idUser: idUser,
         date: date,
         hour: hour,
-        address: address
+        address: address,
+        nameBarber: nameBarber
       }
     }
   
