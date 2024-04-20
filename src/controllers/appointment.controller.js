@@ -73,7 +73,7 @@ class AppointmentController {
     * @param {import('express').Request} req
     * @param {import('express').Response} res   
     */
-    async updateAppinment(req, res) {
+    async updateAppointment(req, res) {
         try {
             let payload = req.body
             const id = req.params.id
@@ -82,10 +82,6 @@ class AppointmentController {
             let filter = {
                 idBarber: payload.idBarber,
                 date: payload.date
-            }         
-            const existAppointment = await adapterDatabase.findOne(colletion, filter)
-            if (existAppointment) {
-                throw { status: 400, message: "The barber already has an appointment that day" }
             }
             const { modifiedCount: count } = await adapterDatabase.update(colletion, payload, id);
             if (count == 0) {
