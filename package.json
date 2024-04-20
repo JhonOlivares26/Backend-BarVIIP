@@ -4,7 +4,8 @@
   "description": "��#\u0000 \u0000B\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000B\u0000a\u0000r\u0000V\u0000I\u0000I\u0000P\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "dev": " nodemon index.js"
+    "dev": " nodemon index.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,10 @@
     "mongodb": "^6.2.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "babel-jest": "^27.5.1",
+    "jest": "^27.5.1",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.4",
+    "ts-jest": "^27.1.5"
   }
 }
